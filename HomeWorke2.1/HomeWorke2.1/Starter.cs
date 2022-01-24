@@ -8,28 +8,27 @@ namespace HomeWorke2._1
 {
     internal class Starter
     {
-        public void Start(int logQuantity)
+        public void Run()
         {
             Actions actions = new Actions();
             var typeOfLog = 0;
-            for (int i = 0; i < logQuantity; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Random random = new Random();
                 typeOfLog = random.Next(0, 3);
-                if (typeOfLog == 0)
+                switch (typeOfLog)
                 {
-                    actions.First();
-                }
-                else if (typeOfLog == 1)
-                {
-                    actions.Second();
-                }
-                else
-                {
-                    actions.Third();
+                    case 0:
+                        actions.First();
+                        break;
+                    case 1:
+                        actions.Second();
+                        break;
+                    case 2:
+                        actions.Third();
+                        break;
                 }
             }
-
         }
     }
 }

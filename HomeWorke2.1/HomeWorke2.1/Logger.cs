@@ -23,7 +23,7 @@ namespace HomeWorke2._1
 
         public void Log(DateTime dateTime, LogType logType, string message)
         {
-            var fullMessage = $"{dateTime} {logType} {message}";
+            var fullMessage = $"{dateTime} : {logType} : {message}";
             Console.WriteLine(fullMessage);
             _logs.Add(fullMessage);
         }
@@ -41,13 +41,14 @@ namespace HomeWorke2._1
             return _logs;
         }
 
-        public void SavelogToFile( int logQuantity)
+        public void SavelogToFile()
         {
-            var nameFile = $"logs.txt";
-            for (int i = 0; i < logQuantity;i++)
+            string container ="";
+            foreach (string log in _logs)
             {
-                File.AppendAllText(nameFile, _logs[i]);
+                container = container + log;
             }
+            File.WriteAllText("log.txt", container);
         }
     }
 }

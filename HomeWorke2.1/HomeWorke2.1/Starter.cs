@@ -10,13 +10,12 @@ namespace HomeWorke2._1
     {
         public void Run()
         {
+            StringBuilder container = new StringBuilder();
             Actions actions = new Actions();
-            var typeOfLog = 0;
             for (int i = 0; i < 100; i++)
             {
                 Random random = new Random();
-                typeOfLog = random.Next(0, 3);
-                switch (typeOfLog)
+                switch (random.Next(0, 3))
                 {
                     case 0:
                         actions.First();
@@ -28,7 +27,9 @@ namespace HomeWorke2._1
                         actions.Third();
                         break;
                 }
+                container.Append(Logger.Instance._logs[i]);
             }
+            File.WriteAllText("log.txt", container.ToString());
         }
     }
 }

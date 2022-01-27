@@ -20,7 +20,6 @@ namespace HomeWorke2._1
         }
         public Result Third()
         {
-            Logger.Instance.Log(DateTime.Now, LogType.Error, $"{nameof(Third)}");
             return new Result { Status = false, Message = "I broke a logic" };
         }
     }

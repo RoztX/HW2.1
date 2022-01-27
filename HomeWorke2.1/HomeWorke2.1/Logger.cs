@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeWorke2._1
 {
-    public sealed partial class Logger
+    public sealed class Logger
     {
         public List<string> _logs = new List<string>();
         private static readonly Logger instance = new Logger();
@@ -23,7 +23,7 @@ namespace HomeWorke2._1
 
         public void Log(DateTime dateTime, LogType logType, string message)
         {
-            var fullMessage = $"{dateTime} : {logType} : {message}";
+            var fullMessage = $"{dateTime}: {logType}: {message}";
             Console.WriteLine(fullMessage);
             _logs.Add(fullMessage);
         }
@@ -39,16 +39,6 @@ namespace HomeWorke2._1
         public List<string> GetLogs()
         {
             return _logs;
-        }
-
-        public void SavelogToFile()
-        {
-            string container ="";
-            foreach (string log in _logs)
-            {
-                container = container + log;
-            }
-            File.WriteAllText("log.txt", container);
         }
     }
 }

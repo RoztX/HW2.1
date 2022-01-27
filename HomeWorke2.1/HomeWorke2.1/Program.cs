@@ -2,4 +2,3 @@
 
     Starter starter = new Starter();
     starter.Run();
-    Logger.Instance.SavelogToFile();
